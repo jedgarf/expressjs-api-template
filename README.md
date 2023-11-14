@@ -2,8 +2,8 @@
 ExpressJS/MySQL(Sequelize)
 
 ## TECH REQUIREMENTS
-- Node JS version v16.20.0
-- MySQL version - MySQL 5.7.24
+- Node JS version 16.20.0
+- MySQL version 5.7.24
 
 ## Added Features
 - Rate Limiter - 100 requests per 15 minutes
