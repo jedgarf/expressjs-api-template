@@ -1,1 +1,2 @@
-# expressjs-structure
+# allhqflix_backend
+Backend API for AllHQFlix

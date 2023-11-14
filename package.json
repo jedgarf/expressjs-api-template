@@ -1,35 +1,58 @@
 {
-  "name": "expressjs-structure",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/geshan/expressjs-structure.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/geshan/expressjs-structure/issues"
-  },
-  "homepage": "https://github.com/geshan/expressjs-structure#readme",
-  "dependencies": {
-    "express": "^4.17.1",
-    "mysql2": "^2.3.3"
-  },
-  "devDependencies": {
-    "jest": "^27.4.5"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "testRegex": "(/test/.*|(\\.|/)(test))\\.(js)x?$"
-  }
+    "name": "expressjs-api-template",
+    "version": "1.0.0",
+    "engines": {
+        "node": ">=14.19.3"
+    },
+    "private": true,
+    "scripts": {
+        "build": "npx rimraf build && babel ./src --out-dir build",
+        "prod": "node ./build/bin/www",
+        "dev": "nodemon --exec babel-node ./src/bin/www",
+        "lint": "./node_modules/.bin/eslint ./src",
+        "pretty": "prettier --write '**/*.{js,json}' '!node_modules/**'",
+        "postpretty": "yarn lint --fix",
+        "test": "nyc --reporter=html --reporter=text --reporter=lcov mocha -r @babel/register"
+    },
+    "dependencies": {
+        "apicache": "^1.6.3",
+        "axios": "^1.3.4",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.20.2",
+        "compression": "^1.7.4",
+        "cookie-parser": "~1.4.4",
+        "cors": "^2.8.5",
+        "debug": "^2.6.9",
+        "dotenv": "^16.0.3",
+        "express": "~4.16.1",
+        "express-rate-limit": "^6.7.0",
+        "helmet": "^6.0.1",
+        "http-errors": "~1.6.3",
+        "jsonwebtoken": "^9.0.0",
+        "morgan": "~1.9.1",
+        "mysql2": "^3.2.0",
+        "nodemailer": "^6.9.2",
+        "request": "^2.88.2",
+        "sequelize": "^6.30.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.21.0",
+        "@babel/core": "^7.21.0",
+        "@babel/node": "^7.20.7",
+        "@babel/plugin-transform-runtime": "^7.21.0",
+        "@babel/preset-env": "^7.20.2",
+        "@babel/register": "^7.21.0",
+        "@babel/runtime": "^7.21.0",
+        "chai": "^4.3.7",
+        "coveralls": "^3.1.1",
+        "eslint": "^8.35.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.27.5",
+        "mocha": "^10.2.0",
+        "nodemon": "^2.0.20",
+        "nyc": "^15.1.0",
+        "prettier": "^2.8.4",
+        "sinon-chai": "^3.7.0",
+        "supertest": "^6.3.3"
+    }
 }
