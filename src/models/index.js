@@ -23,7 +23,6 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 // List of models
-db.apiKeysModel = require("./apiKeysModel").default(sequelize, Sequelize);
 db.menusModel = require("./menusModel").default(sequelize, Sequelize);
 db.subMenusModel = require("./subMenusModel").default(sequelize, Sequelize);
 db.authModel = require("./authModel").default(sequelize, Sequelize);

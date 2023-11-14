@@ -5,37 +5,6 @@ const db = require("../models");
 const Op = db.Sequelize.Op;
 
 
-const getApiKeys = async (req, res) => {
-    
-    var { id } = req.params;
-    var is_active = req.query.is_active || 1;
-
-    try {
-        
-        if (id) {
-            var condition = { id: parseInt(id), is_active: is_active };
-            var api_keys = await db.apiKeysModel.findAll({ where: condition });
-        } else {
-            var condition = { is_active: is_active };
-            var api_keys = await db.apiKeysModel.findAll({ where: condition });
-        }
-
-        if (api_keys.length > 0) {
-            res.status(200);
-            res.json({'data': api_keys});
-        } else {
-            res.status(200);
-            res.json({ message: "No records found." });
-        }
-
-    } catch (error) {
-        res.status(500);
-        res.json({ message: error.stack });
-    }
-    res.end();
-
-}
-
 const getMenus = async (req, res) => {
     
     var { id } = req.params;
@@ -100,7 +69,6 @@ const getSubMenus = async (req, res) => {
 }
 
 module.exports = {
-    getApiKeys,
     getMenus,
     getSubMenus
 };

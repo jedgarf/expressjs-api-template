@@ -6,7 +6,6 @@ const apicache = require("apicache");
 
 // Routes
 import indexRouter from './routes/index';
-import corsProxyRouter from './routes/corsProxyRouter';
 
 // Routes V1
 import authRouter from './routes/v1/authRouter';
@@ -72,7 +71,6 @@ app.use(cookieParser());
 
 // Register Routes
 app.use('/', indexRouter);
-app.use('/utilities', corsProxyRouter);
 
 // version 1
 app.use('/v1', authRouter);
